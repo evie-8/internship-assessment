@@ -31,7 +31,7 @@ def source_language_prompt() -> str:
     for index, key in enumerate(language_codes, start=1):
         print(f"\t\t\t{index}: {key}")
     print("\tEnter number corresponding to language or language name")
-    print("\t❓To end enter 'q'")
+    print("\t❓To end press 'q'")
     
     source_input = input("\n(🧑):\t")
 
@@ -45,6 +45,7 @@ def source_language_prompt() -> str:
 
         else:
             print("\n(🤖):\t❌❌ Invalid input. Please enter a valid number ❌❌")
+            time.sleep(5)
             return source_language_prompt()
 
     elif source_input.title() in language_codes.keys():
@@ -52,6 +53,7 @@ def source_language_prompt() -> str:
 
     else:
         print("\n(🤖):\t❌❌ Invalid input. Please enter a valid language ❌❌")
+        time.sleep(5)
         return source_language_prompt()
 
     return language
@@ -78,6 +80,7 @@ def target_language_prompt() -> str:
 
         else:
             print("\n(🤖):\t❌❌ Invalid input. Please enter a valid number ❌❌")
+            time.sleep(5)
             return target_language_prompt()
 
     elif target_input.title() in language_codes.keys():
@@ -85,6 +88,7 @@ def target_language_prompt() -> str:
 
     else:
         print("\n(🤖):\t❌❌ Invalid input. Please enter a valid language ❌❌")
+        time.sleep(5)
         return target_language_prompt()
 
     return language
@@ -142,6 +146,7 @@ def translator():
     if (source == target):
         print("\n(🤖):\t❌❌ Source language can't be "
               "similar to target language ❌❌")
+        time.sleep(5)
         return translator()
 
     text = text_prompt(source)
@@ -155,7 +160,7 @@ def translator():
             }
     response = get_translation(data)
     print("\n(🤖):\t{}".format(response))
-    time.sleep(3)
+    time.sleep(5)
     return translator()
 
 
